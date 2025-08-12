@@ -5,3 +5,8 @@
 p {
   background-color: yellow;
 }
+.display-temperature {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
