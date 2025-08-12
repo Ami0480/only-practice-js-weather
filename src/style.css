@@ -5,8 +5,15 @@
 p {
   background-color: yellow;
 }
+.current-description {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
 .display-temperature {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+span {
+  margin-top: 20px;
 }

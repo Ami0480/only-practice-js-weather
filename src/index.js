@@ -2,9 +2,16 @@ function showElement(response) {
   console.log(response.data);
   let searchCity = document.querySelector("#city");
   let temperatureElement = document.querySelector("#current-temperature");
+  let iconElement = document.querySelector("#current-icon");
+  iconCode = response.data.weather[0].icon;
+  let iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+  let descriptionElement = document.querySelector("#current-description");
 
   searchCity.innerHTML = response.data.name;
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  iconElement.src = iconUrl;
+  iconElement.alt = response.data.weather[0].description;
+  descriptionElement.innerHTML = response.data.weather[0].description;
 }
 
 function displayCity(city) {
