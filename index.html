@@ -8,13 +8,19 @@
   </head>
   <body>
     <div class="container">
-      <form>
-        <input type="search" placeholder="Enter a city.." />
+      <form id="search-form">
+        <input
+          type="search"
+          placeholder="Enter a city.."
+          id="search-form-input"
+          autocomplete="off"
+          required.
+        />
         <input type="submit" value="Search" />
       </form>
       <p>current weather</p>
       <div class="current-weather">
-        <h1>Perth</h1>
+        <h1 id="city">Perth</h1>
         <img
           src="https://openweathermap.org/img/wn/01d@2x.png"
           class="current-icon"
