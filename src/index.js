@@ -40,6 +40,35 @@ function formatDate(date) {
   return `${day} ${hour}:${minute}`;
 }
 
+function showForecastElement(response) {
+  console.log(response.data.list);
+
+  let forecastList = response.data.list;
+
+  let dailyForecast = forecastList.filter((forecast) =>
+    forecast.dt_txt.includes("12:00:00")
+  );
+
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = "";
+
+  dailyForecast.forEach((forecast) => {
+    let date = new Date(forecast.dt * 1000);
+    let day = date.toLocaleDateString("en-Au", { weekday: "short" });
+    let icon = forecast.weather[0].icon;
+    let iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+    let temp = forecast.main.temp;
+
+    forecastElement.innerHTML += `
+    <div class"forecast-details">
+     <div class="day">${day}</div>
+     <img src=${iconUrl} class="forecast-icon"/>
+     <div class="temp">${temp}°C</div>
+    </div>
+    `;
+  });
+}
+
 function displayCity(city) {
   let apiKey = "d1193959d2d841ec7555416d715716a6";
   let currentApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -59,3 +88,5 @@ function searchForCity(event) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchForCity);
+
+displayCity("Perth");

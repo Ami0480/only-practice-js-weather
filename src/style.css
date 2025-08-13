@@ -17,3 +17,11 @@ p {
 span {
   margin-top: 20px;
 }
+.forecast-weather {
+  display: flex;
+}
+.forecast-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
